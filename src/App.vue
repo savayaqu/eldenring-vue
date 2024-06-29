@@ -14,10 +14,8 @@ import Header from "@/components/Header.vue";
 <style scoped>
 
 .container {
-  max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 20px;
 }
 </style>

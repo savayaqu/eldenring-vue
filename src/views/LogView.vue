@@ -40,8 +40,10 @@ const onSubmit = async () => {
     inputData.password = ''
     return;
   }
-  setToken?.(data?.data.api_token);
-  console.log(data);
+  if (data?.data.api_token) {
+    setToken(data.data.api_token);
+  }
+
   await router.push({ name: 'HomeView' });
 };
 

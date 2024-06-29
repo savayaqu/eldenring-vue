@@ -1,27 +1,21 @@
 <script setup>
 import { useAuthStore } from "@/stores/auth.js";
-import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
 import router from "@/router/index.js";
-import Button from "@/components/Button.vue";
-import { logOut } from "@/api/methods/auth/logOut.js";
-import {onMounted, ref, watch} from "vue";
+import {storeToRefs} from "pinia";
 
-const profile = ref([]);
-const originalProducts = ref([]); // Сохраняем оригинальный список продуктов
 const state = useAuthStore();
+const isAuthenticated = state.isAuthenticated;
 const { token } = storeToRefs(state);
 
-
-
 const handleLogout = async () => {
-  await logOut();
-  state.setToken('');
+  await state.setToken('');
   await router.push({ name: 'login' });
 };
-
-
 </script>
+
 <template>
+
   <header class="header">
     <ul class="list">
       <li class="item">
@@ -46,8 +40,6 @@ const handleLogout = async () => {
     </ul>
   </header>
 </template>
-
-
 
 <style scoped>
 .img {

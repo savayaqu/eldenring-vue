@@ -21,6 +21,11 @@ const router = createRouter({
       name: 'LogView',
       component: () => import('../views/LogView.vue')
     },
+    {
+      path: '/boss/:id',
+      name: 'BossView',
+      component: () => import('../views/BossView.vue')
+    },
   ]
 })
 
